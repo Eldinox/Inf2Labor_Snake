@@ -10,8 +10,7 @@ Aufbau:
 
 Es soll sich hierbei um eine Old-school Version des Spiels handeln (ähnlich wie Arcade). Vor dem Spiel soll es möglich sein kleine Einstellungen vorzunehmen, wie zB. die Farbe seiner Schlange zu bestimmen.
 
-Ausbau der Idee:
-
+Ausbau der Idee:  
 Wenn es mit dem Spiel gut läuft würde ich mir zusätzlich als Ziel setzen einen 2-Spieler Modus an der selben Konsole einzubauen (ähnlich wie bei Spielen wie Bomberman). Hierbei treten die beiden Spieler gegeneinander an und müssen zusätzlich aufpassen nicht den Körper des Gegners zu treffen.
 
 Beispielbild: http://www.coolmath-games.com/sites/cmatgame/files/snake.png
