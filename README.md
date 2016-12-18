@@ -2,12 +2,10 @@
 
 Meine Idee für das Informatik Labor ist das Spiel Snake.
 
-Spielablauf:
-
+Spielablauf:  
 Man bewegt seine schlangenförmige Spielfigur über das Spielfeld und sammelt Nahrung auf, die jedes Mal wenn man ein Stück aufsammelt an einer zufälligen Position erscheint. Mit jedem aufgesammelten Stück wird die Schlange länger und wenn man mit dem Kopf der Schlange den Rand des Spielfelds oder seinen eigenen Körper trifft verliert man.
 
-Aufbau:
-
+Aufbau: 
 Es soll sich hierbei um eine Old-school Version des Spiels handeln (ähnlich wie Arcade). Vor dem Spiel soll es möglich sein kleine Einstellungen vorzunehmen, wie zB. die Farbe seiner Schlange zu bestimmen.
 
 Ausbau der Idee:  
