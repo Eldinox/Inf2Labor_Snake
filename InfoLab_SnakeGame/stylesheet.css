@@ -1,0 +1,158 @@
+/*
+-Sound
+-? für hilfe button
+*/
+body
+{
+	background-color: #85e085;
+}
+.container_left
+{
+	padding-left:10%;
+}
+.playercolorpreview
+{
+	float:left;
+	padding-left:5%;
+}
+.playfieldpreview, .itemImage
+{
+	float:left;
+	max-width: 80%;
+}
+.playerpreview
+{
+	padding-left:10%;
+	height:30px;
+}
+.modal
+{
+	display: none;
+	position: fixed;
+	z-index: 1;
+	padding-top: 10%;
+	width: 100%;
+}
+.helpmodal
+{
+	display: none;
+	position: absolute;
+	z-index: 1;
+	width: 150%;
+	height: auto;
+}
+.modal-content
+{
+	background-color: #ccffcc;
+	margin: auto;
+	padding: 20px;
+	width: 35%;
+	text-align: center;
+}
+.helpmodal-content
+{
+	background-color: #00cc88;
+	margin: auto;
+	padding: 20px;
+	width: 40%;
+	text-align: center;
+}
+.menuButtons
+{
+	font-size: 24px;
+	position: fixed;
+	text-align: center;
+	margin: auto;
+	padding: 20px;
+	padding-top: 5%;
+	width: 100%;
+}
+.itemImages
+{
+	font-size: 1vw;
+}
+
+#menuBackButton
+{
+	margin-left: -50%;
+}
+#helpButton
+{
+	margin-left: 60px;
+}
+#standardModeButton, #multiModeButton, #playAgainButton, #backButton, #winnerText
+{
+	font-size: 2vw;
+	font-style: oblique;
+	margin-top: 10px;
+}
+#pauseText, #helpText
+{
+	font-size: 1.3vw;
+	font-style: oblique;
+}
+
+form
+{
+	display: inline-block;
+}
+
+h1
+{
+	background-image: url("Assets/menuBanner.png");
+	background-size: 100%;
+	max-width: 100%;
+	padding-top: 15%;
+	text-align: center;
+	width: 100%;
+    font-size: 3.5vw;
+	font-style: oblique;
+}
+h2, h3
+{
+	font-size: 2.5vw;
+	font-style: oblique;
+}
+h5
+{
+	font-size: 1.2vw;
+	font-style: oblique;
+}
+
+@media screen and (max-width:899px)
+{
+	canvas
+	{
+		width: 100%;
+	}
+	h2
+	{
+		font-size: 23px;
+	}
+}
+@media screen and (min-width:900px)
+{
+	.playfield
+	{
+		margin: 30px auto 0 auto;
+		width: 900px;
+	}
+}
+@media screen and (max-width:340px)
+{
+	h3
+	{
+		margin-top: -5px;
+	}
+}
+@media screen and (max-width:767px)
+{
+	.helpmodal
+	{
+		display: none;
+		position: absolute;
+		z-index: 1;
+		width: 100%;
+		height: auto;
+	}
+}
