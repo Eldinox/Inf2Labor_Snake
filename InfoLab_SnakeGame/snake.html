@@ -18,30 +18,30 @@
 </head>
 <body>
 	<div class=playfield>
-		<canvas id=canvas width=900 height=620 style="border:5px solid #000;"></canvas>
-		<div id=winnerScreen class=modal>
+		<canvas id="canvas" width=900 height=620 style="border:5px solid #000;"></canvas>
+		<div id="winnerScreen" class=modal>
 			<div class=modal-content>
-				<p id=winnerText></p>
+				<p id="winnerText"></p>
 				<div class=modal-buttons>
-					<br><input class="btn btn-primary" id=playAgainButton type=submit value="Play Again" onclick="playMenuClick(), 	resetGame()">
-					<br><form action=modeSelection.html><input class="btn btn-primary" id=backButton type=submit value="Back to Menu" 	onclick="playMenuClick()"></form>
+					<br><input class="btn btn-primary" id="playAgainButton" type=submit value="Play Again" onclick="playMenuClick(), resetGame()">
+					<br><form action=modeSelection.html><input class="btn btn-primary" id="backButton" type=submit value="Back to Menu" onclick="playMenuClick()"></form>
 				</div>
 			</div>
 		</div>
-		<div id=pauseScreen class=modal>
+		<div id="pauseScreen" class=modal>
 			<div class=modal-content>
 				<h3>Paused</h3>
-				<p id=pauseText>Press [Esc] to continue</p>
+				<p id="pauseText">Press [Esc] to continue</p>
 				<div class=modal-buttons>
-				<form action=snake.html><input class="btn btn-primary" id=playAgainButton type=submit value=Restart onclick="playMenuClick()"></form><br>
-				<form action=modeSelection.html><input class="btn btn-primary" id=backButton type=submit value="Back to Menu" onclick="playMenuClick()"></form>
+				<form action=snake.html><input class="btn btn-primary" id="playAgainButton" type=submit value=Restart onclick="playMenuClick()"></form><br>
+				<form action=modeSelection.html><input class="btn btn-primary" id="backButton" type=submit value="Back to Menu" onclick="playMenuClick()"></form>
 				</div>
 			</div>
 		</div>
 	</div>	
-	<audio id=menuSound src=Assets/menuClick.wav></audio>
-	<audio id=foodSound src=Assets/food.wav></audio>
-	<audio loop id=music src="Assets/Adventure Meme.mp3"></audio>
+	<audio id="menuSound" src=Assets/menuClick.wav></audio>
+	<audio id="foodSound" src=Assets/food.wav></audio>
+	<audio loop id="music" src="Assets/Adventure Meme.mp3"></audio>
 	
 	<script>
 		newGame = false;

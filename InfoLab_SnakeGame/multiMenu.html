@@ -23,68 +23,68 @@
 			<div class="col-sm-6 container_left">
 				<form name=settingsform action=multiSnake.html>
 					<p>Select your Playfield</p>
-    				<div id=playfieldselect>
-    				    <input type=radio id=pf_1 name=type value=black checked=checked>Darkness<br>
-    				    <input type=radio id=pf_2 name=type value=brown>Mud<br>
-    				    <input type=radio id=pf_3 name=type value=green>Jungle<br>
+    				<div id="playfieldselect">
+    				    <input type=radio id="pf_1" name=type value=black checked=checked>Darkness<br>
+    				    <input type=radio id="pf_2" name=type value=brown>Mud<br>
+    				    <input type=radio id="pf_3" name=type value=green>Jungle<br>
     				</div>
     				<br>
     				<p>Select your Color</p>
-    				<div id=playercolorselect>
-    				    <select id=player1select onchange="player1change()">
+    				<div id="playercolorselect">
+    				    <select id="player1select" onchange="player1change()">
     				    	<option value=blue selected=selected>Blue</option>
     				    	<option value=red>Red</option>
     				    	<option value=white>White</option>
     					</select>
-    					<select id=player2select onchange="player2change()">
+    					<select id="player2select" onchange="player2change()">
     				    	<option value=red selected=selected>Red</option>
     				    	<option value=blue>Blue</option>
     				    	<option value=white>White</option>
     					</select>
     				</div>
     				    <br>
-    				    <input id=startButton type=submit value="Start Game" onclick="playMenuClick()">
+    				    <input id="startButton" type=submit value="Start Game" onclick="playMenuClick()">
 				</form>
-				<form action=modeSelection.html><input id=menuBackButton type=submit value=Back onclick="playMenuClick()"></form>
-				<button id=helpButton><strong>?</strong></button>
-				<div id=helpScreen class=helpmodal>
+				<form action=modeSelection.html><input id="menuBackButton" type=submit value=Back onclick="playMenuClick()"></form>
+				<button id="helpButton"><strong>?</strong></button>
+				<div id="helpScreen" class=helpmodal>
 					<div class=helpmodal-content>
 						<span class=close>&times;</span>
-						<div id=helpText>
+						<div id="helpText">
 							<h5><strong>A Snake mode for two players</strong></h5>
 							<p>
 								There is a chance for the following items to appear.
 								<div>
-									<img id=itemImage1 class=itemImage src=Assets/itemImage1.png>
+									<img id="itemImage1" class=itemImage src=Assets/itemImage1.png>
 									<p>+30 Points</p>
 								</div>
 								<div>
-									<img id=itemImage2 class=itemImage src=Assets/itemImage2.png>
+									<img id="itemImage2" class=itemImage src=Assets/itemImage2.png>
 									<p>Speeds the game up for a short time</p>
 								</div>
 								<div>
-									<img id=itemImage3 class=itemImage src=Assets/itemImage3.png>
+									<img id="itemImage3" class=itemImage src=Assets/itemImage3.png>
 									<p>Transparency (move through bodies)</p>
 								</div>
 								<div>
-									<img id=itemImage4 class=itemImage src=Assets/itemImage4.png>
+									<img id="itemImage4" class=itemImage src=Assets/itemImage4.png>
 									<p>Diet to decrease in length</p>
 								</div>
 							</p>
 						</div>
 					</div>
 				</div>
-				<p class=text-danger id= error></p>
+				<p class=text-danger id="error"></p>
 			</div>
 			<div class=col-sm-6>Preview:<br>
-				<div><img id=playfieldpreview class=playfieldpreview src=Assets/levelpreview_black.png></div>
-				<div class=playercolorpreview><p>Player 1:</p><br><img id=player1preview class=playerpreview src=Assets/playerpreview_blue.png></div>
-				<div class=playercolorpreview><p>Player 2:</p><br><img id=player2preview class=playerpreview src=Assets/playerpreview_red.png></div>
+				<div><img id="playfieldpreview" class=playfieldpreview src=Assets/levelpreview_black.png></div>
+				<div class=playercolorpreview><p>Player 1:</p><br><img id="player1preview" class=playerpreview src=Assets/playerpreview_blue.png></div>
+				<div class=playercolorpreview><p>Player 2:</p><br><img id="player2preview" class=playerpreview src=Assets/playerpreview_red.png></div>
 			</div>
 		</div>
 	</div>
-	<audio id=menuSound src=Assets/menuClick.wav></audio>
-	<audio id=selectSound src=Assets/select.wav></audio>
+	<audio id="menuSound" src=Assets/menuClick.wav></audio>
+	<audio id="selectSound" src=Assets/select.wav></audio>
 
 	<script>
 		var modal = document.getElementById("helpScreen");

@@ -23,35 +23,35 @@
 			<div class="col-sm-6 container_left">
 				<form name=settingsform action=snake.html>
 					<p>Select your Playfield</p>
-    				<div id=playfieldselect>
-    				    <input type=radio id=pf_1 name=type value=black checked=checked>Darkness<br>
-    				    <input type=radio id=pf_2 name=type value=brown>Mud<br>
-    				    <input type=radio id=pf_3 name=type value=green>Jungle<br>
+    				<div id="playfieldselect">
+    				    <input type=radio id="pf_1" name=type value=black checked=checked>Darkness<br>
+    				    <input type=radio id="pf_2" name=type value=brown>Mud<br>
+    				    <input type=radio id="pf_3" name=type value=green>Jungle<br>
     				</div>
     				<br>
     				<p>Select your Color</p>
-    				<div id=playercolorselect>
-    				    <select id=playerselect onchange="playerchange()">
+    				<div id="playercolorselect">
+    				    <select id="playerselect" onchange="playerchange()">
     				    	<option value=blue selected=selected>Blue</option>
     				    	<option value=red>Red</option>
     				    	<option value=white>White</option>
     					</select>
     				</div>
     				<br>
-    				<p data-toggle=tooltip title="Fastmode makes the game much faster!"><input type=checkbox id=fastmodecheck value=1 onchange="fastmodechange()">Activate Fastmode</p>
+    				<p data-toggle=tooltip title="Fastmode makes the game much faster!"><input type=checkbox id="fastmodecheck" value=1 onchange="fastmodechange()">Activate Fastmode</p>
     				<br>
-    				<input id=startButton type=submit value="Start Game" onclick="playMenuClick()">
+    				<input id="startButton" type=submit value="Start Game" onclick="playMenuClick()">
 				</form>
-				<form action=modeSelection.html><input id=menuBackButton type=submit value=Back onclick="playMenuClick()"></form>
+				<form action=modeSelection.html><input id="menuBackButton" type=submit value=Back onclick="playMenuClick()"></form>
 			</div>
 			<div class=col-sm-6>Preview:<br>
-				<div><img id=playfieldpreview class=playfieldpreview src=Assets/levelpreview_black.png></div>
-				<div class=playercolorpreview><p>Player:</p><br><img id=playerpreview class=playerpreview src=Assets/playerpreview_blue.png></div>
+				<div><img id="playfieldpreview" class=playfieldpreview src=Assets/levelpreview_black.png></div>
+				<div class=playercolorpreview><p>Player:</p><br><img id="playerpreview" class=playerpreview src=Assets/playerpreview_blue.png></div>
 			</div>
 		</div>
 	</div>
-	<audio id=menuSound src=Assets/menuClick.wav></audio>
-	<audio id=selectSound src=Assets/select.wav></audio>
+	<audio id="menuSound" src=Assets/menuClick.wav></audio>
+	<audio id="selectSound" src=Assets/select.wav></audio>
 
 	<script>
 		var rad = document.settingsform.type;

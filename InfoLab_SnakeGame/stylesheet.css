@@ -82,7 +82,7 @@ body
 	font-style: oblique;
 	margin-top: 10px;
 }
-#player1select, #player2select
+#player1select, #player2select, #playerselect
 {
 	width: 70px;
 }
