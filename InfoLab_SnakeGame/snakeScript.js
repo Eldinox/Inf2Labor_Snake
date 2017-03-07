@@ -9,35 +9,36 @@ $(document).ready(function()
 
 	var player;
 	var color;
-	var score = 0;
-	var direction = "up";
-	var playfieldcolor = "black";
-	var dc = false;
+	var score;
+	var direction;
+	var playfieldcolor;
+	var dc;
 	var foodcolor;
 	var highscore;
 
 	var dif;
-	var pause = false;
-	var gameover = false;
-	var newHighscore = false;
-	var newFastmodeHighscore = false;
+	var pause;
+	var gameover;
+	var newHighscore;
+	var newFastmodeHighscore;
 	var winnermodal;
 	var pausemodal;
+
 
 	function setup()
 	{
 		winnermodal = document.getElementById("winnerScreen");
 		pausemodal = document.getElementById("pauseScreen");
-		highscore = localStorage.getItem('highscore');
-		fastmodeHighscore = localStorage.getItem('fastmodeHighscore');
+		highscore = localStorage.getItem("highscore");
+		fastmodeHighscore = localStorage.getItem("fastmodeHighscore");
 
-		if(sessionStorage.getItem('fastmode') == 1)speed = 40;
+		if(sessionStorage.getItem("fastmode") == 1)speed = 40;
 		else speed = 100;
 
-		color = sessionStorage.getItem('color');
-		if(sessionStorage.getItem('playfieldcolor') == "green") playfieldcolor = "#003300";
-		else if(sessionStorage.getItem('playfieldcolor') == "brown")playfieldcolor = "#1a0e00";
-		else playfieldcolor = sessionStorage.getItem('playfieldcolor');
+		color = sessionStorage.getItem("color");
+		if(sessionStorage.getItem("playfieldcolor") == "green") playfieldcolor = "#003300";
+		else if(sessionStorage.getItem("playfieldcolor") == "brown")playfieldcolor = "#1a0e00";
+		else playfieldcolor = sessionStorage.getItem("playfieldcolor");
 
 		if(color == "red")foodcolor = "#ff6666";
 		else if(color == "blue")foodcolor = "#80b3ff";
@@ -45,16 +46,42 @@ $(document).ready(function()
 
 		create_player();
 		create_food();
+		reset();
+		music();
 
 		gameloopUpdate();
 	}
 
 	setup();
 
+	function reset()
+	{
+		dc = false;
+		direction = "up";
+		score = 0;
+
+		pause = false;
+		gameover = false;
+		newHighscore = false;
+		newFastmodeHighscore = false;
+
+		winnermodal.style.display = "none";
+	}
+
 	function gameloopUpdate()
 	{
 		if(typeof game_loop != "undefined") clearInterval(game_loop);
 		if(pause == false)game_loop = setInterval(update, speed);
+		else game_loop = setInterval(checkForNewGame, speed);
+	}
+
+	function checkForNewGame()
+	{
+		if(newGame == true)
+		{
+			setup();
+			newGame = false;
+		}
 	}
 
 	function create_player()
@@ -83,7 +110,6 @@ $(document).ready(function()
 
 		var newX = player[0].x;
 		var newY = player[0].y;
-		//var highscoreMassage = "";
 
 		if(direction == "up") newY--;
 		else if(direction == "right") newX++;
@@ -94,13 +120,13 @@ $(document).ready(function()
 		if(speed == 100 && score > highscore)
 		{
 			highscore = score;
-			localStorage.setItem('highscore', highscore);
+			localStorage.setItem("highscore", highscore);
 			newHighscore = true;
 		}
 		if(speed == 40 && score > fastmodeHighscore)
 		{
 			fastmodeHighscore = score;
-			localStorage.setItem('fastmodeHighscore', fastmodeHighscore);
+			localStorage.setItem("fastmodeHighscore", fastmodeHighscore);
 			newFastmodeHighscore = true;
 		}
 
@@ -218,22 +244,19 @@ $(document).ready(function()
 			direction = "down";
 			dc = true;
 		}
-		/*else if(key == "82") 
-		{
-			localStorage.setItem('highscore', "0");
-			localStorage.setItem('fastmodeHighscore', "0");
-		}*/
 		else if(key == "27") 
 		{
 			if(pause == false)
 			{
 				pausemodal.style.display = "block";
 				pause = true;
+				musicPause();
 			}
 			else if(pause == true && gameover == false)
 			{
 				pausemodal.style.display = "none";
 				pause = false;
+				music();
 			}
 			gameloopUpdate();
 		}

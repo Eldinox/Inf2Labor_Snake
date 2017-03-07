@@ -17,75 +17,74 @@
 	<link rel=stylesheet href=stylesheet.css type=text/css>
 </head>
 <body>
-	<div class="container-fluid">
-	<h2>Snake</h2>
-		<div class="row">
+	<div class=container-fluid>
+		<h2></h2>
+		<div class=row>
 			<div class="col-sm-6 container_left">
-				<form name= settingsform action="multiSnake.html">
+				<form name=settingsform action=multiSnake.html>
 					<p>Select your Playfield</p>
-    				<div id='playfieldselect'>
-    				    <input type='radio' id='pf_1' name='type' value='black' checked="checked" >Darkness<br>
-    				    <input type='radio' id='pf_2' name='type' value='brown' >Mud<br>
-    				    <input type='radio' id='pf_3' name='type' value='green' >Jungle<br>
+    				<div id=playfieldselect>
+    				    <input type=radio id=pf_1 name=type value=black checked=checked>Darkness<br>
+    				    <input type=radio id=pf_2 name=type value=brown>Mud<br>
+    				    <input type=radio id=pf_3 name=type value=green>Jungle<br>
     				</div>
     				<br>
     				<p>Select your Color</p>
-    				<div id='playercolorselect'>
+    				<div id=playercolorselect>
     				    <select id=player1select onchange="player1change()">
-    				    	<option value="blue" selected="selected">Blue</option>
-    				    	<option value="red">Red</option>
-    				    	<option value="white">White</option>
+    				    	<option value=blue selected=selected>Blue</option>
+    				    	<option value=red>Red</option>
+    				    	<option value=white>White</option>
     					</select>
     					<select id=player2select onchange="player2change()">
-    				    	<option value="red" selected="selected">Red</option>
-    				    	<option value="blue">Blue</option>
-    				    	<option value="white">White</option>
+    				    	<option value=red selected=selected>Red</option>
+    				    	<option value=blue>Blue</option>
+    				    	<option value=white>White</option>
     					</select>
     				</div>
     				    <br>
-    				    <input id=startButton type="submit" value="Start Game" onclick = "playMenuClick()">
+    				    <input id=startButton type=submit value="Start Game" onclick="playMenuClick()">
 				</form>
-				<form action = "modeSelection.html"><input id=menuBackButton type="submit" value="Back" onclick = "playMenuClick()"></form>
-				<button id = "helpButton">help</button>
-				<div id = "helpScreen" class = "helpmodal">
-					<div class = "helpmodal-content">
-						<span class = "close">&times;</span>
-						<div id = "helpText">
-						<h5><strong>A Snake mode for two players</strong></h5>
-						<p>
-							There is a chance for the following items to appear.
-							<div>
-								<img id = "itemImage1" class = "itemImage" src = "Assets/itemImage1.png">
-								<p>+30 Points</p>
-							</div>
-							<div>
-								<img id = "itemImage2" class = "itemImage" src = "Assets/itemImage2.png">
-								<p>Speeds the game up for a short time</p>
-							</div>
-							<div>
-								<img id = "itemImage3" class = "itemImage" src = "Assets/itemImage3.png">
-								<p>Transparency (move through bodies)</p>
-							</div>
-							<div>
-								<img id = "itemImage4" class = "itemImage" src = "Assets/itemImage4.png">
-								<p>Diet to decrease in length</p>
-							</div>
-						</p>
+				<form action=modeSelection.html><input id=menuBackButton type=submit value=Back onclick="playMenuClick()"></form>
+				<button id=helpButton><strong>?</strong></button>
+				<div id=helpScreen class=helpmodal>
+					<div class=helpmodal-content>
+						<span class=close>&times;</span>
+						<div id=helpText>
+							<h5><strong>A Snake mode for two players</strong></h5>
+							<p>
+								There is a chance for the following items to appear.
+								<div>
+									<img id=itemImage1 class=itemImage src=Assets/itemImage1.png>
+									<p>+30 Points</p>
+								</div>
+								<div>
+									<img id=itemImage2 class=itemImage src=Assets/itemImage2.png>
+									<p>Speeds the game up for a short time</p>
+								</div>
+								<div>
+									<img id=itemImage3 class=itemImage src=Assets/itemImage3.png>
+									<p>Transparency (move through bodies)</p>
+								</div>
+								<div>
+									<img id=itemImage4 class=itemImage src=Assets/itemImage4.png>
+									<p>Diet to decrease in length</p>
+								</div>
+							</p>
 						</div>
 					</div>
 				</div>
-				<p class = "text-danger" id = "error"></p>
+				<p class=text-danger id= error></p>
 			</div>
-			<div class = "col-sm-6 container_right">Preview:<br>
-				<div><img id = "playfieldpreview" class = "playfieldpreview" src = "Assets/levelpreview_black.png"></div>
-				<div class = playercolorpreview><p >Player 1:</p><br><img id = "player1preview" class = "playerpreview" src = "Assets/playerpreview_blue.png"></div>
-				
-				<div class = playercolorpreview><p >Player 2:</p><br><img id = "player2preview" class = "playerpreview" src = "Assets/playerpreview_red.png"></div>
+			<div class=col-sm-6>Preview:<br>
+				<div><img id=playfieldpreview class=playfieldpreview src=Assets/levelpreview_black.png></div>
+				<div class=playercolorpreview><p>Player 1:</p><br><img id=player1preview class=playerpreview src=Assets/playerpreview_blue.png></div>
+				<div class=playercolorpreview><p>Player 2:</p><br><img id=player2preview class=playerpreview src=Assets/playerpreview_red.png></div>
 			</div>
 		</div>
 	</div>
-	<audio id="menuSound" src="Assets/menuClick.wav" ></audio>
-	<audio id="selectSound" src="Assets/select.wav" ></audio>
+	<audio id=menuSound src=Assets/menuClick.wav></audio>
+	<audio id=selectSound src=Assets/select.wav></audio>
 
 	<script>
 		var modal = document.getElementById("helpScreen");
@@ -126,13 +125,16 @@
     	            playSelect();
     	        }
     	        document.getElementById("playfieldpreview").src = "Assets/levelpreview_" + this.value + ".png";
-    	        sessionStorage.setItem('playfieldcolor', this.value);
+    	        sessionStorage.setItem("playfieldcolor", this.value);
     	    };
     	}
+    	
 		function resetSelected()
 		{
 			var e = document.getElementsByTagName("input");
-			var i = 0; while(i < e.length)
+			var i = 0; 
+
+			while(i < e.length)
 			{
 				if(e[i++].type == "radio")
 				{
@@ -149,14 +151,15 @@
 			{
 				return this.defaultSelected;
 			});
-			sessionStorage.setItem('playfieldcolor', "black");
-			sessionStorage.setItem('player1color', "blue");
-			sessionStorage.setItem('player2color', "red");
+			sessionStorage.setItem("playfieldcolor", "black");
+			sessionStorage.setItem("player1color", "blue");
+			sessionStorage.setItem("player2color", "red");
 		}
+
 		function player1change()
 		{
 			color1 = document.getElementById("player1select").value;
-			sessionStorage.setItem('player1color', color1);
+			sessionStorage.setItem("player1color", color1);
 			document.getElementById("player1preview").src = "Assets/playerpreview_" + color1 + ".png";
 			playSelect();
 			if(color1 == color2)
@@ -173,7 +176,7 @@
 		function player2change()
 		{
 			color2 = document.getElementById("player2select").value;
-			sessionStorage.setItem('player2color', color2);
+			sessionStorage.setItem("player2color", color2);
 			document.getElementById("player2preview").src = "Assets/playerpreview_" + color2 + ".png";
 			playSelect();
 			if(color2 == color1)
@@ -187,6 +190,7 @@
 				document.getElementById("error").innerHTML = "";
 			}
 		}
+
 		function playMenuClick()
     	{
     		var sound = document.getElementById("menuSound");
@@ -200,17 +204,4 @@
 		window.onload = resetSelected;
 	</script>
 </body>
-</html>	
-
-
-
-
-
-
-<!--
-Quelle für radio Button funktion:
-http://stackoverflow.com/questions/8838648/onchange-event-handler-for-radio-button-input-type-radio-doesnt-work-as-one
-http://www.htmlhelpcentral.com/messageboard/showthread.php?17054-Reset-radio-buttons-on-refresh
-Und select tab:
-http://stackoverflow.com/questions/16913094/reset-select-value-to-default
--->
+</html>

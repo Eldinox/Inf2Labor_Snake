@@ -2,8 +2,8 @@
 <html lang = de>
 <head>
 	<Title>Standard Snake Menu</title>
-	<meta charset = utf-8>
-	<meta name = viewport content = "width=device-width, initial-scale=1">
+	<meta charset=utf-8>
+	<meta name=viewport content="width = device-width, initial-scale = 1">
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="	sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	
@@ -17,41 +17,41 @@
 	<link rel=stylesheet href=stylesheet.css type=text/css>
 </head>
 <body>
-	<div class="container-fluid">
-	<h2>Snake</h2>
-		<div class="row">
+	<div class=container-fluid>
+		<h2></h2>
+		<div class=row>
 			<div class="col-sm-6 container_left">
-				<form name= settingsform action="snake.html">
+				<form name=settingsform action=snake.html>
 					<p>Select your Playfield</p>
-    				<div id='playfieldselect'>
-    				    <input type='radio' id='pf_1' name='type' value='black' checked="checked" >Darkness<br>
-    				    <input type='radio' id='pf_2' name='type' value='brown' >Mud<br>
-    				    <input type='radio' id='pf_3' name='type' value='green' >Jungle<br>
+    				<div id=playfieldselect>
+    				    <input type=radio id=pf_1 name=type value=black checked=checked>Darkness<br>
+    				    <input type=radio id=pf_2 name=type value=brown>Mud<br>
+    				    <input type=radio id=pf_3 name=type value=green>Jungle<br>
     				</div>
     				<br>
     				<p>Select your Color</p>
-    				<div id='playercolorselect'>
+    				<div id=playercolorselect>
     				    <select id=playerselect onchange="playerchange()">
-    				    	<option value="blue" selected="selected">Blue</option>
-    				    	<option value="red">Red</option>
-    				    	<option value="white">White</option>
+    				    	<option value=blue selected=selected>Blue</option>
+    				    	<option value=red>Red</option>
+    				    	<option value=white>White</option>
     					</select>
     				</div>
     				<br>
-    				<p data-toggle="tooltip" title="Fastmode makes the game much faster!"><input type='checkbox' id='fastmodecheck' value='1' onchange="fastmodechange()">Activate Fastmode</p>
+    				<p data-toggle=tooltip title="Fastmode makes the game much faster!"><input type=checkbox id=fastmodecheck value=1 onchange="fastmodechange()">Activate Fastmode</p>
     				<br>
-    				<input id=startButton type="submit" value="Start Game" onclick = "playMenuClick()">
+    				<input id=startButton type=submit value="Start Game" onclick="playMenuClick()">
 				</form>
-				<form action = "modeSelection.html"><input id=menuBackButton type="submit" value="Back" onclick = "playMenuClick()"></form>
+				<form action=modeSelection.html><input id=menuBackButton type=submit value=Back onclick="playMenuClick()"></form>
 			</div>
-			<div class="col-sm-6 container_right">Preview:<br>
-				<div><img id="playfieldpreview" class="playfieldpreview" src="Assets/levelpreview_black.png"></div>
-				<div class=playercolorpreview><p>Player:</p><br><img id="playerpreview" class="playerpreview" src="Assets/playerpreview_blue.png"></div>
+			<div class=col-sm-6>Preview:<br>
+				<div><img id=playfieldpreview class=playfieldpreview src=Assets/levelpreview_black.png></div>
+				<div class=playercolorpreview><p>Player:</p><br><img id=playerpreview class=playerpreview src=Assets/playerpreview_blue.png></div>
 			</div>
 		</div>
 	</div>
-	<audio id="menuSound" src="Assets/menuClick.wav" ></audio>
-	<audio id="selectSound" src="Assets/select.wav" ></audio>
+	<audio id=menuSound src=Assets/menuClick.wav></audio>
+	<audio id=selectSound src=Assets/select.wav></audio>
 
 	<script>
 		var rad = document.settingsform.type;
@@ -70,7 +70,7 @@
     	            playSelect();
     	        }
     	        document.getElementById("playfieldpreview").src = "Assets/levelpreview_" + this.value + ".png";
-    	        sessionStorage.setItem('playfieldcolor', this.value);
+    	        sessionStorage.setItem("playfieldcolor", this.value);
     	    };
     	}
 
@@ -78,30 +78,41 @@
     	{
     		if(fm == 0)fm = 1;
     		else if(fm == 1)fm = 0;
-    		sessionStorage.setItem('fastmode', fm);
+    		sessionStorage.setItem("fastmode", fm);
     		playSelect();
     	}
 
 		function resetSelected()
 		{
-			var e=document.getElementsByTagName('input');var i=0;while(i<e.length){if(e[i++].type=='radio'){e[i].checked=false;}}
-			e[0].checked=true;
+			var e = document.getElementsByTagName("input");
+			var i = 0;
+
+			while(i < e.length)
+			{
+				if(e[i++].type == "radio")
+				{
+					e[i].checked = false;
+				}
+			}
+			e[0].checked = true;
+
 			$("#playerselect option").prop("selected", function()
 			{
 				return this.defaultSelected;
 			});
-			sessionStorage.setItem('playfieldcolor', "black");
-			sessionStorage.setItem('color', "blue");
-			sessionStorage.setItem('fastmode', "0");
+			sessionStorage.setItem("playfieldcolor", "black");
+			sessionStorage.setItem("color", "blue");
+			sessionStorage.setItem("fastmode", "0");
 		}
 
 		function playerchange()
 		{
 			color = document.getElementById("playerselect").value;
-			sessionStorage.setItem('color', color);
+			sessionStorage.setItem("color", color);
 			playSelect();
 			document.getElementById("playerpreview").src = "Assets/playerpreview_" + color + ".png";
 		}
+
 		function playMenuClick()
 		{
 			var sound = document.getElementById("menuSound");

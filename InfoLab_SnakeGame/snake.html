@@ -2,8 +2,8 @@
 <html lang = de>
 <head>
 	<Title>Snake</title>
-	<meta charset = utf-8>
-	<meta name = viewport content = "width=device-width, initial-scale=1">
+	<meta charset=utf-8>
+	<meta name=viewport content="width = device-width, initial-scale = 1">
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="	sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	
@@ -14,34 +14,42 @@
 
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="	sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-	<link rel = stylesheet href = stylesheet.css type = text/css>
+	<link rel=stylesheet href=stylesheet.css type=text/css>
 </head>
 <body>
 	<div class=playfield>
 		<canvas id=canvas width=900 height=620 style="border:5px solid #000;"></canvas>
-		<div id = "winnerScreen" class = "modal">
-			<div class = "modal-content">
-				<p id = winnerText></p>
-				<div class = "modal-buttons">
-				<br><form action = "snake.html"><input class="btn btn-primary" id=playAgainButton type="submit" value="Play Again" onclick = "playMenuClick()"></form>
-				<br><form action = "modeSelection.html"><input class="btn btn-primary" id=backButton type="submit" value="Back to Menu" onclick = "playMenuClick()"></form>
+		<div id=winnerScreen class=modal>
+			<div class=modal-content>
+				<p id=winnerText></p>
+				<div class=modal-buttons>
+					<br><input class="btn btn-primary" id=playAgainButton type=submit value="Play Again" onclick="playMenuClick(), 	resetGame()">
+					<br><form action=modeSelection.html><input class="btn btn-primary" id=backButton type=submit value="Back to Menu" 	onclick="playMenuClick()"></form>
 				</div>
 			</div>
 		</div>
-		<div id = "pauseScreen" class = "modal">
-			<div class = "modal-content">
-			<h3>Paused</h3>
-				<p id = pauseText>Press [Esc] to continue</p>
-				<div class = "modal-buttons">
-				<form action = "snake.html"><input class="btn btn-primary" id=playAgainButton type="submit" value="Restart" onclick = "playMenuClick()"></form><br>
-				<form action = "modeSelection.html"><input class="btn btn-primary" id=backButton type="submit" value="Back to Menu" onclick = "playMenuClick()"></form>
+		<div id=pauseScreen class=modal>
+			<div class=modal-content>
+				<h3>Paused</h3>
+				<p id=pauseText>Press [Esc] to continue</p>
+				<div class=modal-buttons>
+				<form action=snake.html><input class="btn btn-primary" id=playAgainButton type=submit value=Restart onclick="playMenuClick()"></form><br>
+				<form action=modeSelection.html><input class="btn btn-primary" id=backButton type=submit value="Back to Menu" onclick="playMenuClick()"></form>
 				</div>
 			</div>
 		</div>
 	</div>	
-	<audio id="menuSound" src="Assets/menuClick.wav" ></audio>
-	<audio id="foodSound" src="Assets/food.wav" ></audio>
+	<audio id=menuSound src=Assets/menuClick.wav></audio>
+	<audio id=foodSound src=Assets/food.wav></audio>
+	<audio loop id=music src="Assets/Adventure Meme.mp3"></audio>
+	
 	<script>
+		newGame = false;
+		function resetGame()
+		{
+			newGame = true;
+		}
+
 		function playMenuClick()
 		{
 			var sound = document.getElementById("menuSound");
@@ -52,8 +60,19 @@
 			var sound = document.getElementById("foodSound");
 		    sound.play();
 		}
+		function music()
+		{
+			var sound = document.getElementById("music");
+		    sound.play();
+		    sound.volume = 0.4;
+		}
+		function musicPause()
+		{
+			var sound = document.getElementById("music");
+		    sound.pause();
+		}
 	</script>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
-	<script src="snakeScript.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+	<script src=snakeScript.js></script>
 </body>
 </html>	

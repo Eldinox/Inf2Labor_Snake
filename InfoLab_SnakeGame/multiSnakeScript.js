@@ -13,15 +13,15 @@ $(document).ready(function()
 	var player2;
 	var player1color;
 	var player2color;
-	var player1score = 0;
-	var player2score = 0;
-	var player1direction = "up";
-	var player2direction = "up";
-	var playfieldcolor = "black";
-	var player1dc = false;
-	var player2dc = false;
-	var player1transparent = false;
-	var player2transparent = false;
+	var player1score;
+	var player2score;
+	var player1direction;
+	var player2direction;
+	var playfieldcolor;
+	var player1dc;
+	var player2dc;
+	var player1transparent;
+	var player2transparent;
 	var foodcolor1;
 	var foodcolor2;
 	
@@ -30,8 +30,8 @@ $(document).ready(function()
 	var playernumber;
 	var dif;
 	var endCase;
-	var pause = false;
-	var gameover = false;
+	var pause;
+	var gameover;
 	var winnermodal;
 	var pausemodal;
 
@@ -39,15 +39,15 @@ $(document).ready(function()
 	var itemX;
 	var itemY;
 	var itemNumber;
-	var firstItem = false;
-	var item1active = false;
-	var item2active = false;
-	var item3active = false;
-	var item4active = false;
-	var noItemActive = true;
-	var itemTimer = 0;
-	var fastModeCounter = 0;
-	var	transparentCounter = 0;
+	var firstItem;
+	var item1active;
+	var item2active;
+	var item3active;
+	var item4active;
+	var noItemActive;
+	var itemTimer;
+	var fastModeCounter;
+	var	transparentCounter;
 
 	//Initialisierung bei Spielbeginn
 	function setup() 
@@ -56,11 +56,11 @@ $(document).ready(function()
 		pausemodal = document.getElementById("pauseScreen");
 
 		//Ausgewählte Farben werden initialisiert
-		player1color = sessionStorage.getItem('player1color');
-		player2color = sessionStorage.getItem('player2color');
-		if(sessionStorage.getItem('playfieldcolor') == "green") playfieldcolor = "#003300";
-		else if(sessionStorage.getItem('playfieldcolor') == "brown")playfieldcolor = "#1a0e00";
-		else playfieldcolor = sessionStorage.getItem('playfieldcolor');
+		player1color = sessionStorage.getItem("player1color");
+		player2color = sessionStorage.getItem("player2color");
+		if(sessionStorage.getItem("playfieldcolor") == "green") playfieldcolor = "#003300";
+		else if(sessionStorage.getItem("playfieldcolor") == "brown")playfieldcolor = "#1a0e00";
+		else playfieldcolor = sessionStorage.getItem("playfieldcolor");
 
 		//Farbe des Essens wird angepasst
 		if(player1color == "red")foodcolor1 = "#ff6666";
@@ -73,18 +73,60 @@ $(document).ready(function()
 		//Funktionen werden aufgerufen
 		create_player();
 		create_food(3);
+		music();
+		reset();
 
 		//Gameloop
 		gameloopUpdate();
 	}
 
 	setup();
+
+	//Resetet die Werte um ein neues Spiel zu starten
+	function reset()
+	{
+		speed = 100;
+		player1score = 0;
+		player2score = 0;
+		player1direction = "up";
+		player2direction = "up";
+		player1dc = false;
+		player2dc = false;
+		player1transparent = false;
+		player2transparent = false;
+
+		pause = false;
+		gameover = false;
+
+		firstItem = false;
+		item1active = false;
+		item2active = false;
+		item3active = false;
+		item4active = false;
+		noItemActive = true;
+		itemTimer = 0;
+		fastModeCounter = 0;
+		transparentCounter = 0;
+
+		winnermodal.style.display = "none";
+	}
 	
 	//Gameloop, der in einem bestimmten Intervall die Updatefunktion aufruft
 	function gameloopUpdate() 
 	{
 		if(typeof game_loop != "undefined") clearInterval(game_loop);
 		if(pause == false)game_loop = setInterval(update, speed);
+		else game_loop = setInterval(checkForNewGame, speed);
+	}
+
+	//Überprüft ob ein neues Spiel gestartet wird während das Spiel pausiert ist
+	function checkForNewGame()
+	{
+		if(newGame == true)
+		{
+			setup();
+			newGame = false;
+		}
 	}
 
 	//Erstellen der Spieler
@@ -518,7 +560,7 @@ $(document).ready(function()
 		{
 			ctx.beginPath();
 			ctx.arc(x*cell+cell/2, y*cell+cell/2, cell/2, 0, 2*Math.PI);
-			ctx.fillStyle = "ff80aa";
+			ctx.fillStyle = "#ff80aa";
 			ctx.fill();
 			ctx.stroke();
 		}
@@ -534,7 +576,7 @@ $(document).ready(function()
 		{
 			ctx.beginPath();
 			ctx.arc(x*cell+cell/2, y*cell+cell/2, cell/2, 0, 2*Math.PI);
-			ctx.fillStyle = "#ffe6ff";//rgba(217, 217, 217, 0.3)";
+			ctx.fillStyle = "#ffe6ff";
 			ctx.fill();
 			ctx.stroke();
 		}
@@ -542,7 +584,7 @@ $(document).ready(function()
 		{
 			ctx.beginPath();
 			ctx.arc(x*cell+cell/2, y*cell+cell/2, cell/2, 0, 2*Math.PI);
-			ctx.fillStyle = "#ccff99";
+			ctx.fillStyle = "#66ff33";
 			ctx.fill();
 			ctx.stroke();
 		}
@@ -650,11 +692,13 @@ $(document).ready(function()
 			{
 				pausemodal.style.display = "block";
 				pause = true;
+				musicPause();
 			}
 			else if(pause == true && gameover == false)
 			{
 				pausemodal.style.display = "none";
 				pause = false;	
+				music();
 			}
 			gameloopUpdate();
 		}

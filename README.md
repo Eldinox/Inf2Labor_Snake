@@ -1,5 +1,7 @@
-# Inf2Labor_Snake
+﻿# Inf2Labor_Snake
 
+Note: Die Datei "modeSelection.html" ist praktisch der Startbildschirm
+_______________________________________________________________________________________________
 Meine Idee für das Informatik Labor ist das Spiel Snake.
 
 Spielablauf:  

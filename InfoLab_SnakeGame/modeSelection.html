@@ -2,8 +2,8 @@
 <html lang = de>
 <head>
 	<Title>Snake Menu</title>
-	<meta charset = utf-8>
-	<meta name = viewport content = "width=device-width, initial-scale=1">
+	<meta charset=utf-8>
+	<meta name=viewport content="width = device-width, initial-scale = 1">
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="	sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	
@@ -14,22 +14,21 @@
 
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="	sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-	<link rel = stylesheet href = stylesheet.css type = text/css>
-
+	<link rel=stylesheet href=stylesheet.css type=text/css>
 </head>
 <body>
-		<h1></h1>
-		<div class = menuButtons>
-		<form action = "standardMenu.html"><input class="btn btn-primary" id=standardModeButton type="submit" value="Standard Mode" onclick="play()"></form><br>
-		<form action = "multiMenu.html"><input class="btn btn-primary" id=multiModeButton type="submit" value="2 Player Mode" onclick="play()"></form>
-		</div>
-		<audio id="menuSound" src="Assets/menuClick.wav" ></audio>
-		<script>
-			function play()
-    		{
-    			var sound = document.getElementById("menuSound");
-    		    sound.play();
-    		}
-		</script>
+	<h1></h1>
+	<div class=menuButtons>
+		<form action=standardMenu.html><input class="btn btn-primary" id=standardModeButton type=submit value="Standard 	Mode" onclick="playMenuClick()"></form><br>
+		<form action = "multiMenu.html"><input class="btn btn-primary" id=multiModeButton type=submit value="2 Player Mode"	 onclick="playMenuClick()"></form>
+	</div>
+	<audio id=menuSound src=Assets/menuClick.wav></audio>
+	<script>
+		function playMenuClick()
+    	{
+    		var sound = document.getElementById("menuSound");
+    	    sound.play();
+    	}
+	</script>
 </body>
 </html>
